@@ -1,31 +1,48 @@
-wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+# Tarefa 1 — Alinhamento de reads
 
-bash Miniforge3-$(uname)-$(uname -m).sh
+## Organismo
 
+- **Nome científico:** *Pitangus sulphuratus* (bem-te-vi)
+- **Run:** `ERR17582071`
+- **Tipo de sequenciamento:** WGS paired-end
+- **Subset utilizado:** 5 spots
+
+## Referência
+
+- **Assembly:** `GCA_029286575.1_ASM2928657v1`
+- **FASTA:** `GCA_029286575.1_ASM2928657v1_genomic.fna`
+
+### Download das reads
+
+```bash
 mamba create -n sra-tools -c conda-forge -c bioconda sra-tools
-
 mamba activate sra-tools
 
 fastq-dump --split-files -X 5 ERR17582071
 
 mamba deactivate
+```
 
+### Alinhamento
+
+```bash
 mamba create -n minimap2 -c conda-forge -c bioconda minimap2 samtools
-
 mamba activate minimap2
 
-minimap2 -d Pitangus\_sulphuratus.mmi   
-GCA\_029286575.1\_ASM2928657v1\_genomic.fna
+minimap2 -d Pitangus_sulphuratus.mmi \
+  GCA_029286575.1_ASM2928657v1_genomic.fna
 
-samtools faidx GCA\_029286575.1\_ASM2928657v1\_genomic.fna
+samtools faidx GCA_029286575.1_ASM2928657v1_genomic.fna
 
-minimap2 -ax sr   
-Pitangus\_sulphuratus.mmi   
-ERR17582071\_1.fastq   
-ERR17582071\_2.fastq |   
-samtools sort -o alinhamento\_ERR17582071.bam
+minimap2 -ax sr \
+  Pitangus_sulphuratus.mmi \
+  ERR17582071_1.fastq \
+  ERR17582071_2.fastq | \
+samtools sort -o alinhamento_ERR17582071.bam
 
-samtools index alinhamento\_ERR17582071.bam
+samtools index alinhamento_ERR17582071.bam
+```
 
-# arquivos restantes -> https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing
+## Arquivos grandes
 
+[Google Drive — arquivos de entrada e saída](https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing)
