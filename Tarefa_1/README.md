@@ -27,5 +27,5 @@ samtools sort -o alinhamento\_ERR17582071.bam
 
 samtools index alinhamento\_ERR17582071.bam
 
-/# arquivos restantes -> https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing
+# arquivos restantes -> https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing
 
