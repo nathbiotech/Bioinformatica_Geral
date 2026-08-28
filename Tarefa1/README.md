@@ -52,4 +52,4 @@ picard SortSam \
 
 ## Arquivos restantes
 
-[Google Drive — arquivos de entrada e saída](https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing)
+(https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing)
