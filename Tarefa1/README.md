@@ -37,6 +37,6 @@ samtools sort -o alinhamento_SRR39974648.bam alinhamento_SRR39974648.sam
 samtools index alinhamento_SRR39974648.bam
 ```
 
-## Arquivos restantes
+## Arquivos de input e output
 
 (https://drive.google.com/drive/folders/1pEP3cjxZ8WJUcEzd2Kppi2nfOzLeey7H?usp=sharing)
