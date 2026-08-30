@@ -14,40 +14,27 @@
 ### Download e conversão das reads
 
 ```bash
-mamba activate sra-tools
-
 prefetch SRR39974648
-
 fasterq-dump --split-files SRR39974648
 ```
 
 ### Indexação da referência
 
 ```bash
-mamba activate minimap2
-
-minimap2 -d M_genitalium.mmi \
-  GCF_040556925.1_ASM4055692v1_genomic.fna
+minimap2 -d M_genitalium.mmi GCF_040556925.1_ASM4055692v1_genomic.fna
 ```
 
 ### Alinhamento
 
 ```bash
-minimap2 -ax sr \
-  M_genitalium.mmi \
-  SRR39974648_1.fastq \
-  SRR39974648_2.fastq \
-  > alinhamento_SRR39974648.sam
+minimap2 -ax sr M_genitalium.mmi SRR39974648_1.fastq SRR39974648_2.fastq > alinhamento_SRR39974648.sam
 ```
 
 ### Ordenação e indexação do BAM
 
 ```bash
-picard SortSam \
-  I=alinhamento_SRR39974648.sam \
-  O=alinhamento_SRR39974648.bam \
-  SORT_ORDER=coordinate \
-  CREATE_INDEX=true
+samtools sort -o alinhamento_SRR39974648.bam alinhamento_SRR39974648.sam
+samtools index alinhamento_SRR39974648.bam
 ```
 
 ## Arquivos restantes
