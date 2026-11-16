@@ -315,8 +315,6 @@ ggsave("Heatmap_Final.png", plot = p_heat_final, width = 12, height = 8, dpi = 3
 
 # ------------------------------------------------------------------------------
 # UMAP ANOTADO
-# CORREÇÃO: com vários clusters agrupados na mesma identidade, o rótulo cai na
-# mediana do grupo e fica no lugar errado. Usamos só a legenda (label = FALSE).
 # ------------------------------------------------------------------------------
 p_umap_final <- DimPlot(seurat_obj, reduction = "umap", group.by = "cell_type",
                         label = FALSE, pt.size = 0.4) +
